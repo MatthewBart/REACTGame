@@ -1,6 +1,22 @@
 .App {
   text-align: center;
 }
+.board{
+  display: flex;                       /* establish flex container */
+  flex-direction:column;  
+  gap:10px;
+
+}
+.gridRow{
+  justify-content: center;
+  display:flex;
+  gap:10px;
+}
+.card{
+  padding:30px;
+  border-radius:5px;
+  background:grey;
+}
 
 .App-logo {
   height: 40vmin;

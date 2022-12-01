@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // Define 2d Array to use as the board
+  const [boardGrid, setBoardGrid] = useState([
+    [0,1,2,3],[4,5,0,1],[2,3,4,5]
+  ]);
+
   return (
+    // Displays the boardGrid array in a single column using mapping
+    // Flexbox is then used in App.css to convert it into a 3x3 grid
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="board">
+        {boardGrid.map((row, rowIndex) => 
+        (
+        <div key={rowIndex} className="gridRow">
+          {row.map((numb, colIndex) =>
+          (
+            <div className="card" key={colIndex} > {numb}</div>
+          ))}
+        </div>
+        ))}
+      </div>
     </div>
   );
 }
